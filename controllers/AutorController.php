@@ -69,15 +69,15 @@ class AutorController extends ActiveController
 
     public function actionView($id)
     {
-       // return $this->findModel($id);
+      
         $autor = $this->findModel($id);
         // Buscar los libros asociados al autor
-    $libros = Libro::find()->where(['autores' => $autor->_id->__toString()])->all();
+        $libros = Libro::find()->where(['autores' => $autor->_id->__toString()])->all();
     
-    // Asignar los libros encontrados al autor
-    $autor->libros_escritos = $libros;
-    
-    return $autor;
+        // Asignar los libros encontrados al autor
+        $autor->libros_escritos = $libros;
+        
+        return $autor;
     }
 
     public function actionCreate()
