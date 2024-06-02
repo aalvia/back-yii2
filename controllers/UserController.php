@@ -66,7 +66,10 @@ class UserController extends ActiveController
         Yii::$app->response->statusCode = 401;
         return ['error' => 'Authentication failed.'];
     }
-
+    public function actionView($id)
+    {
+        return $this->findModel($id);
+    }
     // Método para actualizar usuario
     public function actionUpdate($id)
     {

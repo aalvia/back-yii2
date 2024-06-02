@@ -62,6 +62,7 @@ $config = [
                         'PUT,PATCH <id>' => 'update',
                         'DELETE <id>' => 'delete',
                         'POST login' => 'login', 
+                        'GET <id>' => 'view',
                     ],
                 ],
             ],

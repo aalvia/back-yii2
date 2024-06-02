@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "cbae553c-06a7-4c50-9222-a8d7a777755b",
+		"name": "Libelula Back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[USER] - Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Fulano de Tal\",\r\n    \"email\": \"funalusqui@gmail.com\",\r\n    \"password\": \"fulanoelguapo\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER] - Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Fulano de Tal\",\r\n    \"password\": \"fulanoelguapo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER] - Obtener Todos Los Usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER] - Consultar usuario individual",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "s9rmbFWxzscwrTZf_DzETb-yrkBYpyeP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/665b73910dc5e83f800578cc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"665b73910dc5e83f800578cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER] - Actualizar usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"fulanoeditado\",\r\n    \"email\": \"fulanoeditado@g.com\",\r\n    \"password\": \"1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/665b73910dc5e83f800578cc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"665b73910dc5e83f800578cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER] - Eliminar usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/665b77ba73be078cd608a052",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"665b77ba73be078cd608a052"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTOR] - Crear autor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_completo\": \"Autor 5\",\r\n    \"fecha_nacimiento\": \"1980-01-01\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTOR] - Obtener autores",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTOR] - Consultar autor individual",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "s9rmbFWxzscwrTZf_DzETb-yrkBYpyeP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autor/665c9c6b51ac1bce5d04f194",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autor",
+						"665c9c6b51ac1bce5d04f194"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTOR] - Actualizar autor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_completo\": \"Autor Documentacion Edit\",\r\n    \"fecha_nacimiento\": \"1980-01-01\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autor/665c9c6b51ac1bce5d04f194",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autor",
+						"665c9c6b51ac1bce5d04f194"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTOR] - Eliminar autor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autor/665b80b51865715cda0d2fa3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autor",
+						"665b80b51865715cda0d2fa3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[LIBRO] - Crear libro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"libro Documentacion 2\",\r\n    \"autores\": [\"665bb99b75a03d922d0efc24\",\"665bb9a575a03d922d0efc25\"],\r\n    \"anio_publicacion\": \"2001\",\r\n    \"descripcion\": \"Este es un libro de prueba para el registro 2.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/libro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[LIBRO] - Obtener libros",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[LIBRO] - Contultar libro individual",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "s9rmbFWxzscwrTZf_DzETb-yrkBYpyeP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/665bbb2875a03d922d0efc27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"665bbb2875a03d922d0efc27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[LIBRO] - Actualizar libro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "vwjEW0Ib7CjdvX1q4juAvwhUL4HiptMO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"libro Documentacion 2\",\r\n    \"autores\": [\"665bb99b75a03d922d0efc24\",\"665c9c6b51ac1bce5d04f194\"],\r\n    \"anio_publicacion\": \"2001\",\r\n    \"descripcion\": \"libro de registro actualizado.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/libro/665c9f6751ac1bce5d04f195",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"665c9f6751ac1bce5d04f195"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[LIBRO] - Eliminar libro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "s9rmbFWxzscwrTZf_DzETb-yrkBYpyeP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/665bbb5c75a03d922d0efc29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"665bbb5c75a03d922d0efc29"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
