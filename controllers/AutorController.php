@@ -10,13 +10,20 @@ use yii\web\NotFoundHttpException;
 use yii\filters\ContentNegotiator;
 use yii\filters\VerbFilter;
 use yii\web\Response;
-
 use yii\filters\auth\HttpBearerAuth;
 
+/**
+ * AutorController handles the CRUD actions for Autor model.
+ */
 class AutorController extends ActiveController
 {
     public $modelClass = 'app\models\Autor';
 
+    /**
+     * Configures behaviors for the controller.
+     * 
+     * @return array The behaviors configuration.
+     */
     public function behaviors()
     {
         $behaviors = parent::behaviors();
@@ -42,6 +49,11 @@ class AutorController extends ActiveController
         return $behaviors;
     }
 
+    /**
+     * Configures actions for the controller.
+     * 
+     * @return array The actions configuration.
+     */
     public function actions()
     {
         $actions = parent::actions();
@@ -49,37 +61,44 @@ class AutorController extends ActiveController
         return $actions;
     }
 
+    /**
+     * Lists all Autor models.
+     * 
+     * @return array The list of Autor models.
+     */
     public function actionIndex()
     {
         $autores = Autor::find()->all();
-        $librosDeAutores = [];
     
         foreach ($autores as $autor) {
-          
-           
             $libros = Libro::find()->where(['autores' => $autor->_id->__toString()])->all();
-            
-        
-       $autor->libros_escritos =$libros;
-    
+            $autor->libros_escritos = $libros;
         }
        
         return $autores;
     }
 
+    /**
+     * Displays a single Autor model.
+     * 
+     * @param string $id The ID of the model to be displayed.
+     * @return Autor The loaded model.
+     * @throws NotFoundHttpException if the model cannot be found.
+     */
     public function actionView($id)
     {
-      
         $autor = $this->findModel($id);
-        // Buscar los libros asociados al autor
         $libros = Libro::find()->where(['autores' => $autor->_id->__toString()])->all();
-    
-        // Asignar los libros encontrados al autor
         $autor->libros_escritos = $libros;
         
         return $autor;
     }
 
+    /**
+     * Creates a new Autor model.
+     * 
+     * @return Autor|array The created model or validation errors.
+     */
     public function actionCreate()
     {
         $model = new Autor();
@@ -94,6 +113,13 @@ class AutorController extends ActiveController
         }
     }
 
+    /**
+     * Updates an existing Autor model.
+     * 
+     * @param string $id The ID of the model to be updated.
+     * @return Autor|array The updated model or validation errors.
+     * @throws NotFoundHttpException if the model cannot be found.
+     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -107,18 +133,31 @@ class AutorController extends ActiveController
         }
     }
 
+    /**
+     * Deletes an existing Autor model.
+     * 
+     * @param string $id The ID of the model to be deleted.
+     * @return void
+     * @throws NotFoundHttpException if the model cannot be found.
+     */
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
         if ($model !== null) {
             $model->delete();
             Yii::$app->response->setStatusCode(204);
-            return null;
         } else {
             throw new NotFoundHttpException('The requested autor does not exist.');
         }
     }
 
+    /**
+     * Finds the Autor model based on its primary key value.
+     * 
+     * @param string $id The ID of the model to be found.
+     * @return Autor The loaded model.
+     * @throws NotFoundHttpException if the model cannot be found.
+     */
     protected function findModel($id)
     {
         if (($model = Autor::findOne($id)) !== null) {

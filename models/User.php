@@ -56,12 +56,12 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getAuthKey()
     {
-        return null; // No es necesario si no usas cookies para autenticación
+        return null; 
     }
 
     public function validateAuthKey($authKey)
     {
-        return false; // No es necesario si no usas cookies para autenticación
+        return false; 
     }
 
     public static function findByUsername($username)
@@ -91,10 +91,12 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'email', 'password'], 'required'],
+            [['username', 'email', 'password'], 'required', 'message' => 'Este campo no puede estar vacío.'],
             [['username', 'email', 'password', 'access_token', 'token_expiration'], 'string'],
-            [['email'], 'email'],
-            [['username', 'email'], 'unique'],
+            [['email'], 'email', 'message' => 'Formato de correo electrónico inválido.'],
+            [['username', 'email'], 'unique', 'message' => 'Este usuario o correo electrónico ya existe en la base de datos.'],
         ];
     }
+    
+    
 }
